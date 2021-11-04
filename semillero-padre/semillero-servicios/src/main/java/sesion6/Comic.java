@@ -48,6 +48,7 @@ public class Comic implements Serializable {
 	private EstadoEnum estadoEnum;
 	private Long cantidad;
 
+
 	/**
 	 * Constructor de la clase.
 	 */
@@ -292,6 +293,9 @@ public class Comic implements Serializable {
 	 * @see java.lang.Object#toString() Metodo que permite asociar al objeto un
 	 *      texto representativo
 	 */
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Comic [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", tematica=" + tematicaEnum
@@ -401,5 +405,9 @@ public class Comic implements Serializable {
 			return false;
 		return true;
 	}
+
+	
+
+	
 
 }

@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import com.hbt.semillero.dto.JsonUtils;
 import sesion6.EstadoEnum;
 import sesion6.TematicaEnum;
+import JPAservicios.ResultadoDTO;
 
 /**
  * <b>Descripción:<b> Clase que determina el dto a usar para modificar,
@@ -14,14 +15,14 @@ import sesion6.TematicaEnum;
  * 
  * @author ccastano
  */
-public class ComicDTO implements Serializable {
+public class ComicDTO extends ResultadoDTO implements Serializable {
 
 	/**
 	 * Atributo que determina
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String id;
+	private Long id;
 	private String nombre;
 	private String editorial;
 	private TematicaEnum tematicaEnum;
@@ -33,13 +34,20 @@ public class ComicDTO implements Serializable {
 	private LocalDate fechaVenta;
 	private EstadoEnum estadoEnum;
 	private Long cantidad;
+	
+	
+	/**
+	 * Metodo encargado de retornar el valor del atributo exitoso
+	 * @return El exitoso asociado a la clase
+	 */
+	
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo id
 	 * 
 	 * @return El id asociado a la clase
 	 */
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -48,7 +56,7 @@ public class ComicDTO implements Serializable {
 	 * 
 	 * @param id El nuevo id a modificar.
 	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -250,6 +258,10 @@ public class ComicDTO implements Serializable {
 		this.cantidad = cantidad;
 	}
 
+	
+	
+	
+	
 	/**
 	 * Método encargado de convertir los datos recibidos en JSON al tipo ComicDTO.
 	 * <b>Caso de Uso:</b>
