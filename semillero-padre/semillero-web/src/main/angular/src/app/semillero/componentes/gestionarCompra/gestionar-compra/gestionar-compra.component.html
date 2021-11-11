@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="gestionarCompraForm">
+        <p>{{ "NOMBRE COMIC A COMPRAR: " + nombre }}</p>
+        <div class="row">
+            <div class="col-6">
+                <label for="cantidadCompraComic">Cantidad a comprar:</label>
+                <input type="number" class="form-control" id="cantidadCompraComic" maxlength="50" min="1" formControlName="cantidad"
+                    [ngClass]="{ 'is-invalid' :  submitted && f.cantidad.errors }">
+                <div *ngIf="submitted && f.cantidad.errors">
+                    <span class="text-danger" *ngIf="f.cantidad.errors.required">Campo requerido.</span>
+                    <span class="text-danger" *ngIf="f.cantidad.errors.min">Se debe comprar al menos 1 comic.</span>
+                </div>
+            </div>
+        </div>
+        <button (click)="comprarComic()">Comprar Comic</button>
+        <button (click)="cancelarCompra()">Cancelar Compra</button>
+        <div *ngIf="mostrarItem2" class="alert alert-info" role="alert">
+            ITEM COMPRADO: <pre>{{ mensajeEjecucion | json }}</pre> 
+            <button type="button" class="btn btn-primary" (click)="cerrarAlert()">Volver a Gestionar Comics</button>
+        </div>
+        <div *ngIf="mostrarItem3" class="alert alert-danger" role="alert">
+            EL ITEM NO SE PUDO COMPRAR: <pre>{{ mensajeEjecucion | json }}</pre> 
+            <button type="button" class="btn btn-primary" (click)="cerrarAlert2()">Cerrar</button>
+        </div>
+    </form>
+</div>
